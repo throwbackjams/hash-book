@@ -1,13 +1,13 @@
 [features]
 seeds = false
 [programs.localnet]
-programs = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+programs = "85EZivKT8uvAaphRcUfaN15Wu9PUL4eXBSh28PPDaTAE"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/home/throwbackjams/.config/solana/id.json"
 
 [scripts]

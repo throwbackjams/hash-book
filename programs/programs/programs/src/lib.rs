@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use std::mem::size_of;
 use anchor_spl::token::{self, Token};
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("85EZivKT8uvAaphRcUfaN15Wu9PUL4eXBSh28PPDaTAE");
 
 const TEXT_LENGTH: usize = 1024;
 const USER_NAME_LENGTH: usize = 100;
@@ -50,7 +50,7 @@ pub mod programs {
 pub struct CreateState<'info>{
     #[account(
         init,
-        seeds = [b"state".as_ref()],
+        seeds = [b"state".as_ref()], //TODO: add authority key as seed
         bump,
         payer = authority,
         space = size_of::<StateAccount>() + 8
@@ -66,10 +66,10 @@ pub struct CreateState<'info>{
 #[derive(Accounts)]
 pub struct CreatePost<'info>{
     #[account(mut, seeds = [b"state".as_ref()], bump)]
-    pub state: Account<'info, StateAccount>,
+    pub state: Account<'info, StateAccount>, //TODO: add check that state.authority matches authority signer
     #[account(
         init,
-        seeds = [b"post".as_ref(), state.post_count.to_be_bytes().as_ref()],
+        seeds = [b"post".as_ref(), state.post_count.to_be_bytes().as_ref()], //TODO: add authority key as seed
         bump,
         payer = authority,
         space = size_of::<PostAccount>() + USER_URL_LENGTH + TEXT_LENGTH + USER_NAME_LENGTH
