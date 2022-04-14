@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { useWallet } from '@solana/wallet-adapter-react'
 import { useState, useEffet } from 'react'
 import SignUp from '../components/SignUp'
+import Feed from '../components/Feed'
 
 const style = {
   wrapper: `bg-[#18191a] min-h-screen duration-[0.5s]`,
@@ -20,6 +20,8 @@ const Home: NextPage = () => {
   const [url, setUrl] = useState('')
   const [users, setUserse] = useState([])
 
+  const wallet = useWallet()
+
   return (
     <div className={style.wrapper}>
       {/* Header*/}
@@ -28,8 +30,7 @@ const Home: NextPage = () => {
         <div className={style.homeWrapper}>
           {/* <Sidebar> */}
           <div className={style.main}>
-            HOME FEED
-            {/* <Feed> */}
+            <Feed connected={wallet.connected} name={name} url={url}/>
           </div>
           {/* <RightSidebar> */}
         </div>
