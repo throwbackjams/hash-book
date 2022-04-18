@@ -33,7 +33,7 @@ const Signup = ({setRegistered, name, setName, url, setUrl}) => {
             <form className={style.form}>
                 <div className={style.fieldContainer}>
                     <div className={style.inputTitle}>Name</div>
-                    <div classname={style.inputContainer}>
+                    <div className={style.inputContainer}>
                         <input
                         value = {name}
                         onChange = {event => setName(event.target.value)}
@@ -43,7 +43,7 @@ const Signup = ({setRegistered, name, setName, url, setUrl}) => {
                 </div>
                 <div className={style.fieldContainer}>
                     <div className={style.inputTitle}>Profile Image URL</div>
-                    <div classname={style.inputContainer}>
+                    <div className={style.inputContainer}>
                         <input
                         value = {url}
                         onChange = {event => setUrl(event.target.value)}

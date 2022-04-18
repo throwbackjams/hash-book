@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import { useWallet } from '@solana/wallet-adapter-react'
-import { useState, useEffet } from 'react'
+import { useState, useEffect } from 'react'
 import SignUp from '../components/SignUp'
 import Feed from '../components/Feed'
 
@@ -12,13 +12,11 @@ const style = {
   signupContainer: `flex items-center justify-center w-screen h-[70vh]`,
 }
 
-const registered = true
-
 const Home: NextPage = () => {
   const [registered, setRegistered] = useState(false)
   const [name, setName] = useState('')
   const [url, setUrl] = useState('')
-  const [users, setUserse] = useState([])
+  const [users, setUsers] = useState([])
 
   const wallet = useWallet()
 

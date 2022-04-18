@@ -28,7 +28,7 @@ export const WalletBalanceProvider = ({ children }) => {
 
     return(
         <BalanceContext.Provider
-        value = {[balance,setBalance]}>
+        value = {[balance, setBalance]}>
             {children}
         </BalanceContext.Provider>
     )

@@ -16,6 +16,16 @@ const Post = ({post, viewDetail, createComment, name, url}) => {
     const [isCommentSectionOpened, setIsCommentSectionOpened] = useState(false)
     const [comments, setComments] = useState([])
 
+    useEffect(() => {
+        postDetail()
+    }, [postDetail])
+
+    useEffect(() => {
+        if(comments.length>0) {
+            setIsCommentSectionOpened(true)
+        }
+    },[comments])
+
     const clockToDateString = timestamp =>
         timeAgo.format(new Date(timestamp.toNumber() * 1000), 'twitter-now')
 
@@ -23,6 +33,10 @@ const Post = ({post, viewDetail, createComment, name, url}) => {
         const result = await viewDetail(post.index, post)
 
         setComments(await result)
+    }
+
+    const createCommentForPost = async text => {
+        createComment(text, post.index, post.commentCount)
     }
 
     return(
@@ -56,15 +70,15 @@ const Post = ({post, viewDetail, createComment, name, url}) => {
                 </div>
                 <div className={style.reactionItem}>
                     <FiRefreshCw className={style.refreshIcon}/>
-                    <div className={style.reactionsText}>Refresh Comments</div>
+                    <div className={style.reactionsText} onClick = {postDetail}>Refresh Comments</div>
                 </div>
             </div>
             {isCommentSectionOpened && (
                 <CommentSection
                     comments = {comments}
-                    viewDetail = {viewDetail}
                     name = {name}
                     url = {url}
+                    createCommentForPost = {createCommentForPost}
                 />
             )}
         </div>
