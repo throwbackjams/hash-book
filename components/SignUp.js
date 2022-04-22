@@ -10,9 +10,9 @@ const Signup = ({setRegistered, name, setName, url, setUrl}) => {
         form: `flex flex-col items-center`,
         fieldContainer: `my-4 `,
         inputTitle: `text-[#afb3b8] font-semibold mb-2 ml-3`,
-        inputContainer: `flex items-center w-[20rem] bg-[#3a3b3d] rounded-full`,
-        inputField: `h-full bg-[#2d2d2d] hover:bg-[#252626] text-white px-2 py-1 mx-1 rounded-full mb-2`,
-        randomUrl: `h-full bg-[#2d2d2d] hover:bg-[#252626] text-[#afb3b8] px-2 py-1 mx-1 hover:px-3 rounded-full cursor-pointer duration-[0.2s] ease-in-out`,
+        inputContainer: `flex items-center w-[20rem] bg-[#2d2d2d] rounded-full`,
+        inputField: `h-full bg-[#2d2d2d] w-[20rem] text-white px-2 py-1 mx-1 rounded-full mb-2`,
+        randomUrl: `h-full bg-[#2d2d2d] text-[#afb3b8] px-2 py-1 mx-1 hover:px-3 rounded-full cursor-pointer duration-[0.2s] ease-in-out`,
         submitButton: `bg-[#3a3b3d] text-white font-semibold px-4 py-2 hover:px-6 rounded-full cursor-pointer duration-[0.2s] ease-in-out`,
       }
       
@@ -49,9 +49,6 @@ const Signup = ({setRegistered, name, setName, url, setUrl}) => {
                         onChange = {event => setUrl(event.target.value)}
                         required
                         className={style.inputField}/>
-                    </div>
-                    <div className={style.randomUrl}>
-                            Random Url
                     </div>
                 </div>
                 <div className={style.fieldContainer}>
